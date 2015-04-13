@@ -55,11 +55,6 @@ function cordovaWrapper(commandArray, next) {
       return platform
     })
 
-    if (cmd == 'run' && args.list && cordova.raw.targets) {
-      cordova.raw.targets.call(null, opts).done(next)
-      return
-    }
-
     cordova.raw[cmd].call(null, opts).done(next)
   } else if (cmd == 'serve') {
     var port = commandArray[1]
